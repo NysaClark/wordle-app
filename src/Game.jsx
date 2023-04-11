@@ -1,16 +1,14 @@
-import React from 'react';
+import React from "react";
+import Board from "./Board";
+import Keyboard from "./Keyboard";
 
 const Game = () => {
-    return (
-        <>
-            <div id='board'>
-        Board
-            </div>
-            <div id='keyboard'>
-Keyboard
-            </div>
-        </>
-    );
-}
+  return (
+    <div id="container">
+      <Board />
+      <Keyboard />
+    </div>
+  );
+};
 
 export default Game;
