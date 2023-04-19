@@ -32,7 +32,7 @@ const Keyboard = () => {
       </div>
 
       <div className="key-row">
-        <button id="enter" className="keyboard-button">
+        <button id="enter" value="Enter" onClick={(event) => buttonClicked(event)} className="keyboard-button">
           Enter
         </button>
         <button onClick={(event) => buttonClicked(event)} className="keyboard-button">Z</button>
@@ -42,7 +42,7 @@ const Keyboard = () => {
         <button onClick={(event) => buttonClicked(event)} className="keyboard-button">B</button>
         <button onClick={(event) => buttonClicked(event)} className="keyboard-button">N</button>
         <button onClick={(event) => buttonClicked(event)} className="keyboard-button">M</button>
-        <button onClick={(event) => buttonClicked(event)} id="backspace" className="keyboard-button">
+        <button onClick={(event) => buttonClicked(event)} value="Backspace" id="backspace" className="keyboard-button">
           <MdOutlineBackspace />
         </button>
       </div>

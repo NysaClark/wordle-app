@@ -4,13 +4,17 @@ let currBox = 0;
 
 // handle key down
 export const handleKeyDown = (event) => {
-    console.log(event.target)
-}
+  console.log(event.target);
+};
 
 // button clicked
 export const buttonClicked = (event) => {
-    console.log(event.target.innerText)
-}
+  if (event.target.value === "Enter" || event.target.value === "Backspace") {
+    console.log(event.target.value);
+  } else {
+    console.log(event.target.innerText);
+  }
+};
 
 // chage key color
 
