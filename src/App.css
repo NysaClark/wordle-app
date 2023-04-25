@@ -126,6 +126,21 @@ html {
 }
 
 @media (max-width: 600px) {
+#header{
+  padding: .4rem;
+
+}
+
+#header h1{
+  font-size: 1.4rem;
+}
+
+#header .icons svg{
+  width: 1.4em;
+  height: 1.4em;
+  padding: 0 0.6rem;
+}
+
   #container{
     margin-top: .8rem;
   }
@@ -135,11 +150,12 @@ html {
 
   .keyboard-button#enter{
     font-size: .75rem;
-    padding: 0 .5rem;
+    padding: 0 .3rem;
   }
 
   .keyboard-button#backspace svg {
-    height: 1em;
-    width: 1em;
+    /* height: 1em;
+    width: 1em; */
+    margin: 0 .6rem;
   }
 }
