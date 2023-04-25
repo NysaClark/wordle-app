@@ -124,3 +124,22 @@ html {
 .flex-div {
   flex: 0.5 1;
 }
+
+@media (max-width: 600px) {
+  #container{
+    margin-top: .8rem;
+  }
+  .flex-div{
+    display: none;
+  }
+
+  .keyboard-button#enter{
+    font-size: .75rem;
+    padding: 0 1rem;
+  }
+
+  .keyboard-button#backspace svg {
+    height: 1em;
+    width: 1em;
+  }
+}
