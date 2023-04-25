@@ -3,6 +3,7 @@ import Game from "./Game";
 import Header from "./Header";
 import "./App.css";
 import { handleKeyDown, startFunction } from "./util";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   window.onkeydown = (event) => { handleKeyDown(event.key) }
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <Header />
       <Game />
+      <Toaster />
     </div>
   );
 }

@@ -1,6 +1,8 @@
-import words from "./words.js"
+import words from "./words.js";
 import wordList from "./wordlist.js";
-let guessword = "APPLE"; //temp
+import toast from 'react-hot-toast';
+
+let guessword = "GUESS"; //temp
 let currRow = 1;
 let currBox = 0;
 
@@ -12,7 +14,6 @@ export const handleKeyDown = (key) => {
 
   //! haven't used all the guesses
   if (currRow < 7) {
-
     if (key === "ENTER") {
       handleEnter();
       return;
@@ -26,14 +27,16 @@ export const handleKeyDown = (key) => {
       return;
     }
   }
-}
+};
 
 // button clicked
 export const buttonClicked = (key) => {
   //! haven't filled that row's boxes
   //! haven't used all the guesses
   if (currBox < 5 && currRow < 7) {
-    const elemsInCurrRow = Array.from(document.getElementsByClassName("row-" + currRow));
+    const elemsInCurrRow = Array.from(
+      document.getElementsByClassName("row-" + currRow)
+    );
     elemsInCurrRow[currBox].innerText = key;
     currBox++;
   }
@@ -48,24 +51,18 @@ export const handleEnter = () => {
   );
 
   if (currBox < 5) {
-    alert("Not enough letters!");
+    toast("Not enough letters!", {position: "top-center", duration: 3000, style: {backgroundColor: "#FAA0A0", color: "white"}})
   } else {
-    
     if (typedWord === guessword) {
-      
-      alert("You won!")
+      toast("You won! 🎉", {position: "top-center", duration: 3000});
       currRow = 7;
     } else {
-      
-
       // if guessed word is not in the word list
       if (!wordList.includes(typedWord)) {
-        alert("Not in word list");
+        toast("Not in word list", {position: "top-center", duration: 3000, style: {backgroundColor: "#FAA0A0", color: "white"}});
         return;
       }
-
     }
-
 
     let tempGuess = guessword;
     let tempType = typedWord;
@@ -83,7 +80,7 @@ export const handleEnter = () => {
         tempType[i] = " ";
         tempType = tempType.join("");
 
-        changeKeyColor(typedWord.charAt(i), "correct")
+        changeKeyColor(typedWord.charAt(i), "correct");
       }
     }
 
@@ -101,20 +98,19 @@ export const handleEnter = () => {
           tempType[i] = " ";
           tempType = tempType.join("");
 
-          changeKeyColor(typedWord.charAt(i), "present")
+          changeKeyColor(typedWord.charAt(i), "present");
         } else {
           tempType = tempType.split("");
           tempType[i] = "-";
           tempType = tempType.join("");
         }
-
       }
     }
 
     for (let i = 0; i < 5; i++) {
       if (tempType.charAt(i) === "-") {
         elemsInCurrRow[i].style.backgroundColor = "#3a3a3c";
-        changeKeyColor(typedWord.charAt(i), "absent")
+        changeKeyColor(typedWord.charAt(i), "absent");
       }
     }
 
@@ -122,58 +118,63 @@ export const handleEnter = () => {
     currRow = ++currRow;
 
     if (currRow === 7) {
-      alert("Game over!")
+      toast("Game over!", {position: "top-center", duration: 3000, style: {backgroundColor: "#FAA0A0", color: "white"}});
     }
   }
-}
+};
 
 //handle backspace
 export const handleBackspace = () => {
   if (currBox > 0) {
-    const elemsInCurrRow = Array.from(document.getElementsByClassName("row-" + currRow));
+    const elemsInCurrRow = Array.from(
+      document.getElementsByClassName("row-" + currRow)
+    );
     elemsInCurrRow[currBox - 1].innerText = "";
     currBox--;
   }
-}
+};
 
 //get typed word
 const getTypedWord = () => {
   let typedWord = "";
-  const elemsInCurrRow = Array.from(document.getElementsByClassName("row-" + currRow));
+  const elemsInCurrRow = Array.from(
+    document.getElementsByClassName("row-" + currRow)
+  );
   for (let i in elemsInCurrRow) {
     typedWord += elemsInCurrRow[i].innerText;
   }
   return typedWord;
-}
+};
 
 // change key color
 const changeKeyColor = (key, color) => {
   const keyDiv = document.getElementById(key);
 
-  if (colorMap.has(key)) {// letters been used before
-    if (color === "correct") { // was present now correct
+  if (colorMap.has(key)) {
+    // letters been used before
+    if (color === "correct") {
+      // was present now correct
       colorMap.set(key, color);
       keyDiv.style.backgroundColor = "#538d4e";
     }
-  } else { //! letter hasn't been used before
+  } else {
+    //! letter hasn't been used before
     if (color === "correct") {
       colorMap.set(key, color);
       keyDiv.style.backgroundColor = "#538d4e";
-    } else
-      if (color === "present") {
-        colorMap.set(key, color);
-        keyDiv.style.backgroundColor = "#b59f3b";
-      } else
-        if (color === "absent") {
-          colorMap.set(key, color);
-          keyDiv.style.backgroundColor = "#3a3a3c";
-        }
+    } else if (color === "present") {
+      colorMap.set(key, color);
+      keyDiv.style.backgroundColor = "#b59f3b";
+    } else if (color === "absent") {
+      colorMap.set(key, color);
+      keyDiv.style.backgroundColor = "#3a3a3c";
+    }
   }
-}
+};
 
 // start function
 export const startFunction = () => {
   const random = Math.floor(Math.random() * words.length);
   guessword = words[random].toUpperCase();
   console.log(guessword);
-}
+};
