@@ -135,7 +135,7 @@ html {
 
   .keyboard-button#enter{
     font-size: .75rem;
-    padding: 0 1rem;
+    padding: 0 .5rem;
   }
 
   .keyboard-button#backspace svg {
