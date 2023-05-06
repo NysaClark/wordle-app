@@ -1,10 +1,20 @@
+*,
+::before,
+::after {
+  box-sizing: unset !important;
+}
 html {
   background-color: #121212;
   color: white;
 }
 
+.App {
+  background-color: #121212;
+}
+
 /* HEADER STYLES */
-#header {
+.header {
+  height: 6vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -15,27 +25,84 @@ html {
   border-bottom: 1px #363636 solid;
 }
 
-#header #menu-icon {
+.header #menu-icon {
   width: 1.5em;
   height: 1.5em;
+  cursor: pointer;
 }
 
-#header h1 {
+.header h1 {
   margin-left: 8%;
   font-weight: 900;
 }
 
-#header .icons svg {
+.header .icons svg {
   width: 1.8em;
   height: 1.8em;
   padding: 0 0.6rem;
+  cursor: pointer;
+}
+
+.sidebar {
+  color: white;
+  background-color: #121212;
+  border-right: #363636 1px solid;
+  border-bottom: #363636 1px solid;
+
+  width: 20vw;
+  height: 70vh;
+
+  position: absolute;
+  top: calc(1rem + 2em + 1rem);
+  left: 0;
+
+  margin: 1rem 0;
+  padding: 0.8rem 0.8rem;
+
+  transition: transform 0.3s ease-in;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  box-shadow: 2px 8px 5px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar.hidden {
+  transform: translateX(-21rem);
+  transition: transform 0.3s ease-out;
+}
+
+.sidebar .bottom {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sidebar code {
+  margin-top: 0.5rem;
+  color: white;
+}
+
+.modal-content{
+  background-color: #121212 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.modal-header{
+  border: none !important;
+}
+
+.modal-body{
+  padding-top: 0 !important;
 }
 
 /* GAME */
 #container {
   display: flex;
   flex-direction: column;
-  margin: 1.8rem auto 0;
+  margin: 1.5rem auto 0;
   max-width: 500px;
   width: 100%;
 }
@@ -126,36 +193,35 @@ html {
 }
 
 @media (max-width: 600px) {
-#header{
-  padding: .5rem;
-
-}
-
-#header h1{
-  font-size: 1.4rem;
-}
-
-#header .icons svg{
-  width: 1.4em;
-  height: 1.4em;
-  padding: 0 0.6rem;
-}
-
-  #container{
-    margin-top: .4rem;
+  .header {
+    padding: 0.5rem;
   }
-  .flex-div{
+
+  .header h1 {
+    font-size: 1.4rem;
+  }
+
+  .header .icons svg {
+    width: 1.4em;
+    height: 1.4em;
+    padding: 0 0.6rem;
+  }
+
+  #container {
+    margin-top: 0.4rem;
+  }
+  .flex-div {
     display: none;
   }
 
-  .keyboard-button#enter{
-    font-size: .75rem;
-    padding: 0 .3rem;
+  .keyboard-button#enter {
+    font-size: 0.75rem;
+    padding: 0 0.3rem;
   }
 
   .keyboard-button#backspace svg {
     /* height: 1em;
     width: 1em; */
-    margin: 0 .6rem;
+    margin: 0 0.6rem;
   }
 }

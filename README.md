@@ -1,2 +1,2 @@
 ## TO DO
-- header buttons
+- header buttons functionality
