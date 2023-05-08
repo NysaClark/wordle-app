@@ -34,6 +34,7 @@ html {
 .header h1 {
   margin-left: 8%;
   font-weight: 900;
+  cursor: default;
 }
 
 .header .icons svg {
@@ -43,23 +44,25 @@ html {
   cursor: pointer;
 }
 
+/*  SIDEBAR */
+
 .sidebar {
   color: white;
   background-color: #121212;
   border-right: #363636 1px solid;
   border-bottom: #363636 1px solid;
 
-  width: 20vw;
+  width: 22.5vw;
   height: 70vh;
 
   position: absolute;
-  top: calc(1rem + 2em + 1rem);
+  top: calc(6vh + 1.1rem);
   left: 0;
 
   margin: 1rem 0;
   padding: 0.8rem 0.8rem;
 
-  transition: transform 0.3s ease-in;
+  transition: transform 0.5s ease-in;
 
   display: flex;
   justify-content: space-between;
@@ -69,8 +72,8 @@ html {
 }
 
 .sidebar.hidden {
-  transform: translateX(-21rem);
-  transition: transform 0.3s ease-out;
+  transform: translateX(-23.5rem);
+  transition: transform 0.5s ease-out;
 }
 
 .sidebar .bottom {
@@ -84,18 +87,39 @@ html {
   color: white;
 }
 
-.modal-content{
-  background-color: #121212 !important;
-    color: white !important;
-    border: none !important;
-}
+/* PLAY MODAL */
 
-.modal-header{
+.modal-content {
+  background-color: #121212 !important;
+  color: white !important;
   border: none !important;
 }
 
-.modal-body{
+.modal-header {
+  border: none !important;
+}
+
+.modal-body {
   padding-top: 0 !important;
+  font-size: 0.9rem;
+}
+
+.modal-body h2 {
+  font-weight: bold;
+}
+
+.modal-body h4 {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.modal-body h5 {
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.modal-body img {
+  height: 45px;
 }
 
 /* GAME */
@@ -192,6 +216,29 @@ html {
   flex: 0.5 1;
 }
 
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 26vw;
+    height: 70vh;
+  }
+  .sidebar.hidden {
+    transform: translateX(-27rem);
+    /* transition: transform 0.5s ease-out; */
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 37vw;
+    height: 70vh;
+    /* transition: transform 0.3s ease-in; */
+  }
+  .sidebar.hidden {
+    transform: translateX(-38rem);
+    /* transition: transform 0.5s ease-out; */
+  }
+}
+
 @media (max-width: 600px) {
   .header {
     padding: 0.5rem;
@@ -223,5 +270,16 @@ html {
     /* height: 1em;
     width: 1em; */
     margin: 0 0.6rem;
+  }
+
+  .sidebar {
+    width: 55vw;
+    height: 80vh;
+    margin: 0;
+    /* transition: transform 0.3s ease-in; */
+  }
+  .sidebar.hidden {
+    transform: translateX(-46rem);
+    /* transition: transform 0.5s ease-out; */
   }
 }
