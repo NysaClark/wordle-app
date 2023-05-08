@@ -19,11 +19,11 @@ const PlayModal = ({ showPlay, setShowPlay }) => {
           </li>
         </ul>
         <h5>Examples</h5>
-        <img src={Example1} />
+        <img src={Example1} alt="example 1"  />
         <p>W is in the word and in the correct spot.</p>
-        <img src={Example2} />
+        <img src={Example2} alt="example 2" />
         <p>I is in the word but in the wrong spot.</p>
-        <img src={Example3} />
+        <img src={Example3} alt="example 3"  />
         <p>U is not in the word in any spot.</p>
       </Modal.Body>
     </Modal>
