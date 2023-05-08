@@ -241,11 +241,12 @@ html {
 
 @media (max-width: 600px) {
   .header {
-    padding: 0.5rem;
+    padding: 0.2rem .8rem;
   }
 
   .header h1 {
     font-size: 1.4rem;
+    margin-bottom: 0;
   }
 
   .header .icons svg {
@@ -255,10 +256,16 @@ html {
   }
 
   #container {
-    margin-top: 0.4rem;
+    margin-top: 0;
   }
   .flex-div {
     display: none;
+  }
+
+  #board-module {
+    height: 420px;
+    padding: 5px;
+    width: 350px;
   }
 
   .keyboard-button#enter {
@@ -270,6 +277,14 @@ html {
     /* height: 1em;
     width: 1em; */
     margin: 0 0.6rem;
+  }
+
+  .key-row{
+    margin: 0 auto 5px;
+  }
+
+  #keyboard{
+    height: 100%;
   }
 
   .sidebar {
